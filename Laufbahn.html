@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laufbahn</title>
+  <header class="Header">Karriere Laufbahn</header>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .Header {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin-top: 10px;
+        text-decoration: underline;
+        color: #6a0dad;         /* schönes Lila */
+         font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* leichter Schatten */
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background-color: #ccc;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .timeline-item::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 20px;
+      background: #222;
+      color: #fff;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      z-index: 2;
+    }
+
+    /* Linke Seite */
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+      padding-right: 40px;
+    }
+    .timeline-item.left::before {
+      right: -16px; /* halb über die Linie */
+    }
+
+    /* Rechte Seite */
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+      padding-left: 40px;
+    }
+    .timeline-item.right::before {
+      left: -16px; /* halb über die Linie */
+    }
+    .menu-icon {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        z-index: 2000;
+        filter: brightness(12) invert(0); /* weißes Icon */
+        background: #6a0dad;             /* Lila Kreis dahinter */
+        padding: 8px;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .sidebar {
+        position: fixed;
+      top: 0;
+      left: -200px; /* versteckt */
+      width: 200px;
+      height: 100%;
+      background: linear-gradient(180deg, #6a0dad, #9c27b0); /* Verlauf */
+      color: white;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline">
+    <div class="timeline-item left" data-step="1">
+      <h3>Volksschule</h3>
+      <p>Ich besuchte die Bad Wimsbach-Neydharting. (2017–2021)</p>
+    </div>
+
+    <div class="timeline-item right" data-step="2">
+      <h3>Neue Mittelschule</h3>
+      <p>Anschließend besuchte ich die TNMS Stadl-Paura (2021–2025)</p>
+    </div>
+
+    <div class="timeline-item left" data-step="3">
+      <h3>Polytechnikum (zukünftig)</h3>
+      <p>Ich machte mein 9. Schuljahr im Vorchdorfer Poly (2025–2026)</p>
+    </div>
+
+    <div class="timeline-item right" data-step="4">
+      <h3>Jobsuchend (zukünftig)</h3>
+      <p>Bis dato suche ich eine Stelle entweder in einer weiterführenden Schule oder in einer Lehre.</p>
+    </div>
+  </div>
+  </div>
+<div>
+         <!-- Menü-Icon -->
+  <img src="menu.png" alt="Menü" class="menu-icon" id="menuBtn">
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="index.html">Startseite</a>
+    <a href="Bilderbuch.html">Bilderbuch</a>
+    <a href="Laufbahn.html">Laufbahn</a>
+  </div>
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+    </script>
+</body>
+</html>
